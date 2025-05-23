@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import questions from "../data/question.json";
 import Card from "../components/ImageCard";
+import star from "../assets/images/star.png";
 
 const ImageCarousel = () => {
     const [current, setCurrent] = useState(0);
     const [feedback, setFeedback] = useState(null);
     const [hasDragged, setHasDragged] = useState(false);
     const [dragResult, setDragResult] = useState(null);
+    const [direction, setDirection] = useState(1);
     const total = questions.length;
+    const blockBackRef = useRef(false);
 
     const getIndex = (offset) => (current + offset + total) % total;
 
@@ -46,12 +49,31 @@ const ImageCarousel = () => {
         }),
     };
 
-    const [direction, setDirection] = useState(1);
-
     const moveNext = () => {
         setDirection(1);
         setCurrent((prev) => (prev + 1) % total);
     };
+
+    useEffect(() => {
+        if (!hasDragged) return;
+
+        if (!blockBackRef.current) {
+            window.history.pushState(null, null, window.location.href);
+            blockBackRef.current = true;
+        } else {
+            window.history.replaceState(null, null, window.location.href);
+        }
+
+        const onPopState = () => {
+            window.history.pushState(null, null, window.location.href);
+        };
+
+        window.addEventListener("popstate", onPopState);
+
+        return () => {
+            window.removeEventListener("popstate", onPopState);
+        };
+    }, [hasDragged]);
 
     const handleDragEndWithMove = (_, info) => {
         if (hasDragged) return;
@@ -76,6 +98,17 @@ const ImageCarousel = () => {
 
     return (
         <div className="relative min-h-screen flex items-center justify-center bg-gray-900 overflow-hidden">
+            <div className="absolute top-16 left-1/2 transform -translate-x-1/2 flex items-center gap-4 px-4 py-3 rounded-full z-20 bg-white/10 backdrop-blur-md border border-white/20 shadow-lg">
+                <img
+                    src={star}
+                    alt="Score Icon"
+                    className="w-16 h-16 rounded-full object-cover"
+                    style={{
+                        boxShadow: "0 0 10px 6px #FFF95EA1",
+                    }}
+                />
+                <div className="text-3xl font-bold text-[#66FCF1]">Points</div>
+            </div>
             <AnimatePresence>
                 {dragResult && (
                     <motion.div
@@ -102,8 +135,8 @@ const ImageCarousel = () => {
                     const style = {
                         position: "absolute",
                         top: 0,
-                        left: "50%",
-                        width: "256px",
+                        left: "38%",
+                        width: "260px",
                         height: "100%",
                         transform: `
                             translateX(${offset * 220}px)
