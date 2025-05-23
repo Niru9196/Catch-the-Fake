@@ -1,51 +1,57 @@
-import React from 'react';
-import techCircle from '../assets/images/highlightedWheel.png';
+import React from "react";
+import Button from "../components/Button";
 
 const Login = () => {
-  return (
-    <div className="flex justify-center md:items-end min-h-screen text-white font-sans ">
-      <div className="relative flex items-center justify-center sm:w-[38rem] sm:h-[38rem] 2xl:w-[50rem] 2xl:h-[50rem]">
-        <img
-          src={techCircle}
-          alt="Tech Circle"
-          className="h-full object-contain "
-        />
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // TODO: Add login logic
+    };
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-          <h1 className="text-[40px] md:text-5xl font-semibold leading-tight">
-            CATCH THE FAKE
-          </h1>
-
-          <p className="mt-2 text-lg text-[#C3C3C3]">Beware of Fraud Messages!</p>
-          <p className="text-base mb-6 text-[#C3C3C3]">Spot the fraud and collect points.</p>
-
-          <button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{
-              type: 'spring',
-              mass: 1,
-              stiffness: 100,
-              damping: 15,
-            }}
-            className="text-white font-semibold py-2 px-8 rounded-xl text-lg w-64"
-            style={{
-              background: 'linear-gradient(to right, #5760FF, #000D1F)',
-            }}
-          >
-            Log In
-          </button>
-
-          <p className="mt-4 text-sm text-[#FFFFFF]">
-            Don’t have log in?{' '}
-            <a href="#" className="text-[#38B0FF] underline font-medium">
-              Register yourself
-            </a>
-          </p>
+    return (
+        <div className="min-h-screen flex items-center justify-center bg-[#0f172a]">
+            <div className="relative z-10 p-10 px-32 rounded-xl text-white border border-[#5760FF] backdrop-blur-xl bg-gradient-to-r from-[rgba(94,181,244,0.3)] to-[rgba(23,69,79,0.1)]">
+                <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+                <form onSubmit={handleSubmit} className="space-y-5">
+                    <div>
+                        <label
+                            htmlFor="email"
+                            className="block mb-1 text-lg font-medium"
+                        >
+                            Email ID
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                            className="w-full px-4 py-2 rounded-md text-white outline-none bg-[#F6F6F61C]"
+                        />
+                    </div>
+                    <div>
+                        <label
+                            htmlFor="password"
+                            className="block mb-1 text-lg font-medium"
+                        >
+                            Password
+                        </label>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required
+                            className="w-full px-4 py-2 rounded-md text-white outline-none bg-[#F6F6F61C]"
+                        />
+                    </div>
+                    <p>Forgot your password?</p>
+                    <Button
+                        text="Next"
+                        handleFucntion={handleSubmit}
+                        width="52"
+                    />
+                </form>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Login;

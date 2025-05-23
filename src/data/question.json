@@ -1,0 +1,42 @@
+[
+  {
+    "statement": "JavaScript is a statically typed language.",
+    "correctAnswer": false
+  },
+  {
+    "statement": "Python supports object-oriented programming.",
+    "correctAnswer": true
+  },
+  {
+    "statement": "C++ was developed before the C programming language.",
+    "correctAnswer": false
+  },
+  {
+    "statement": "HTML is a programming language.",
+    "correctAnswer": false
+  },
+  {
+    "statement": "Java programs run on a virtual machine called JVM.",
+    "correctAnswer": true
+  },
+  {
+    "statement": "Ruby is primarily used for web development.",
+    "correctAnswer": true
+  },
+  {
+    "statement": "SQL is used to manage databases.",
+    "correctAnswer": true
+  },
+  {
+    "statement": "Swift was created by Microsoft.",
+    "correctAnswer": false
+  },
+  {
+    "statement": "Go programming language is also called Golang.",
+    "correctAnswer": true
+  },
+  {
+    "statement": "PHP stands for Personal Home Page.",
+    "correctAnswer": true
+  }
+]
