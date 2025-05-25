@@ -12,7 +12,6 @@ const colors = [
 ];
 
 const Card = ({ children }) => {
-  // useMemo so color stays stable per render
   const randomColor = useMemo(() => {
     const index = Math.floor(Math.random() * colors.length);
     return colors[index];

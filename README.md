@@ -1,12 +1,83 @@
-# React + Vite
+Catch The Fake
+Develop an interactive web game where users swipe through a carousel of images, identifying
+each as either "Fraud" or "Safe." The game should include user authentication, game logic, data
+storage, and a leaderboard.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Tech Stack:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React.js – Frontend framework
 
-## Expanding the ESLint configuration
+Tailwind CSS – Utility-first CSS styling
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Framer Motion – For animations and transitions
+
+React Router – Client-side routing
+
+Lucide React – Icon library
+
+Folder structure:
+
+src/
+│
+├── assets/              # Static assets (images, etc.)
+│   └── images/
+│
+├── components/          # Reusable UI components (e.g. Button)
+│
+├── context/             # Authentication context (e.g. AuthProvider)
+│
+├── data/                # Questions and answers used in the game
+│
+├── firebase/            # Firebase config and auth functions
+│
+├── hooks/               # Custom hooks for state and effect management
+│
+├── services/            # Business logic (e.g. authService, gameService)
+│
+├── utils/               # Utility helpers (not used but reserved)
+│
+├── view/                # Main application views/pages (Login, Home, Game, etc.)
+│
+└── App.jsx              # Root component
+
+
+
+Gameplay Logic
+Questions and answers stored in /data
+
+User progresses through scenarios and earns points
+
+Score tracking and visual feedback 
+
+Leaderboard
+Show top scores with usernames & scores from Firestore
+
+Sort descending by score
+
+
+✨ Innovation
+In addition to meeting the core requirements, the following enhancements were implemented to improve functionality, usability, and user experience:
+
+🔁 Password Reset Feature:
+A fully functional "Forgot Password?" modal using Firebase Auth, allowing users to reset their credentials — even though this was not part of the original specification.
+
+🔙 Back Navigation on Login Page:
+A back button was added to the login screen, allowing users to easily return to the homepage — improving navigability and user control.
+
+🎮 "Play Again" Logic:
+After completing the game, users are given the option to play again, resetting the game state and allowing for repeat engagement without needing to refresh the page.
+
+These features demonstrate thoughtful attention to user experience and flow, going beyond what's expected to make the app more complete and user-friendly.
+
+
+Assumptions and Decisions
+Icon Library Choice:
+I used the lucide-react icon set for consistency and simplicity across the app, even if the original design specified different icons. This was a deliberate choice to maintain a uniform look and ease development.
+
+Background in Image Carousel:
+The background in the image carousel page was adjusted from the original Figma design because the images did not fit well with the plain background. To enhance visual appeal and maintain design balance, I added subtle blinking stars as a background effect, creating a more dynamic and engaging user experience.
+
+
+
+Live Link: 

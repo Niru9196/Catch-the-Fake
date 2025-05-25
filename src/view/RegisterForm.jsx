@@ -23,7 +23,7 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const {name, email, password, confirmPassword } = formData;
+        const { name, email, password, confirmPassword } = formData;
 
         if (password !== confirmPassword) {
             alert("Passwords do not match");
@@ -37,11 +37,13 @@ const Register = () => {
                 password
             );
             await updateProfile(userCredential.user, {
-            displayName: name,
-        });
+                displayName: name,
+            });
 
             console.log("Registered user:", userCredential.user);
             alert("Registration successful!");
+            // optionally redirect here after registration
+            // navigate('/login');
         } catch (error) {
             console.error("Error registering:", error.message);
             alert(error.message);
@@ -54,7 +56,7 @@ const Register = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="relative z-10 w-full max-w-3xl p-6 sm:p-8 md:p-10 rounded-xl text-white border border-[#5760FF] backdrop-blur-xl bg-gradient-to-r from-[rgba(94,181,244,0.3)] to-[rgba(23,69,79,0.1)]"
+                className="relative z-10 w-full max-w-md sm:max-w-lg md:max-w-3xl p-6 sm:p-8 md:p-10 rounded-xl text-white border border-[#5760FF] backdrop-blur-xl bg-gradient-to-r from-[rgba(94,181,244,0.3)] to-[rgba(23,69,79,0.1)]"
             >
                 <div className="relative flex items-center justify-center mb-6">
                     <motion.button
@@ -64,15 +66,15 @@ const Register = () => {
                         className="absolute left-0 text-white hover:text-blue-400"
                         aria-label="Back to home"
                     >
-                        <ArrowLeft className="w-6 h-6 text-4xl" />
+                        <ArrowLeft className="w-6 h-6" />
                     </motion.button>
-                    <h2 className="text-4xl font-bold text-center">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-center">
                         Register Yourself
                     </h2>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="flex w-1/2 flex-col">
+                    <div className="w-full sm:w-1/2 mb-4">
                         <label
                             htmlFor="name"
                             className="block mb-2 text-lg font-medium"

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react"; // You can use any icon library
+import { ArrowLeft } from "lucide-react"; 
 import Button from "../components/Button";
 import { loginUser } from "../services/authService";
 import Resetpassword from "./Resetpassword";
@@ -24,12 +24,12 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-[#0f172a]">
+        <div className="min-h-screen flex items-center justify-center bg-[#0f172a] px-4">
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="relative z-10 p-10 md:w-[35%] rounded-xl text-white border border-[#5760FF] backdrop-blur-xl bg-gradient-to-r from-[rgba(94,181,244,0.3)] to-[rgba(23,69,79,0.1)]"
+                className="relative z-10 p-6 sm:p-10 w-full max-w-md md:max-w-lg rounded-xl text-white border border-[#5760FF] backdrop-blur-xl bg-gradient-to-r from-[rgba(94,181,244,0.3)] to-[rgba(23,69,79,0.1)]"
             >
                 <div className="flex items-center gap-4 mb-6">
                     <button
@@ -46,7 +46,7 @@ const Login = () => {
 
                 <form
                     onSubmit={handleSubmit}
-                    className="space-y-5 max-w-[70%] flex justify-center flex-col mx-auto"
+                    className="space-y-5 w-full"
                 >
                     <div>
                         <label
@@ -94,7 +94,7 @@ const Login = () => {
                     <div className="flex justify-center items-center mt-5">
                         <Button
                             text="Next"
-                            handleFucntion={handleSubmit}
+                            handleFunction={handleSubmit}
                             width="48"
                             size="small"
                         />
@@ -110,7 +110,7 @@ const Login = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+                        className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 px-4"
                     >
                         <Resetpassword setIsResetOpen={setIsResetOpen} />
                     </motion.div>

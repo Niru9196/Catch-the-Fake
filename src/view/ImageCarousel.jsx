@@ -147,10 +147,10 @@ const ImageCarousel = () => {
         let userThinksFraud = null;
 
         if (offsetY < -50) {
-            userThinksFraud = true; // User dragged up = thinks fraud
+            userThinksFraud = true; 
             setUserDragDirection("up");
         } else if (offsetY > 50) {
-            userThinksFraud = false; // User dragged down = thinks safe
+            userThinksFraud = false;
             setUserDragDirection("down");
         }
 
