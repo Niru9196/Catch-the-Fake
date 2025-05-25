@@ -9,6 +9,7 @@ import ImageCarousel from "./view/ImageCarousel";
 import ProtectedRoute from "./services/ProtectedRoute";
 
 import { AuthProvider } from "./context/AuthProvider";
+import Leaderboard from "./view/Leaderboard";
 
 const App = () => {
     return (
@@ -48,7 +49,9 @@ const App = () => {
                                 </ProtectedRoute>
                             }
                         />
-                        <Route path="/game-over" element={<GameOverCard />} />
+                        <Route path="/game-over" element={<ProtectedRoute><GameOverCard /></ProtectedRoute>} />
+                        <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
+
                     </Routes>
                 </main>
             </div>

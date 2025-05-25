@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ text, handleFunction, width, size }) => {
+const Button = ({ text, handleFunction, width, size, children }) => {
     return (
         <div>
             <button
@@ -9,7 +9,10 @@ const Button = ({ text, handleFunction, width, size }) => {
                 } bg-transparent overflow-visible`}
                 onClick={handleFunction}
             >
-                {text}
+               <span className="flex items-center gap-2">
+                    {children}
+                    {text}
+                </span>
                 <span
                     className={`absolute -top-[0.15rem] -left-[0.15rem] ${
                         size ? "w-11" : "w-20"

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase/Firebase";
 import Button from "../components/Button";
 import { ArrowLeft } from "lucide-react";
@@ -23,7 +23,7 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const { email, password, confirmPassword } = formData;
+        const {name, email, password, confirmPassword } = formData;
 
         if (password !== confirmPassword) {
             alert("Passwords do not match");
@@ -36,6 +36,10 @@ const Register = () => {
                 email,
                 password
             );
+            await updateProfile(userCredential.user, {
+            displayName: name,
+        });
+
             console.log("Registered user:", userCredential.user);
             alert("Registration successful!");
         } catch (error) {

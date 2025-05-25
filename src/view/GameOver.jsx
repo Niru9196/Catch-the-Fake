@@ -1,8 +1,16 @@
 import React from "react";
 import star from "../assets/images/star.png";
 import bgImage from "../assets/images/backLight.png";
+import Button from "../components/Button";
+import { useNavigate } from 'react-router-dom';
+
 
 const GameOverCard = ({ score }) => {
+    const navigate = useNavigate();
+    const handleNavigate = ()=>{
+        navigate('/leaderboard');
+    }
+    
     return (
         <div
             className="min-h-screen flex items-center justify-center bg-[#0f172a] bg-cover bg-center relative"
@@ -25,8 +33,18 @@ const GameOverCard = ({ score }) => {
                         {score} Points
                     </div>
                 </div>
+                <Button
+                
+                            handleFunction={handleNavigate}
+                            text="Continue"
+                            width="48"
+                            size="small"
+                            />
             </div>
+            
         </div>
+
+
     );
 };
 

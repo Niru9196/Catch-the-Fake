@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import {logout} from "../services/authService"
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -59,18 +60,15 @@ const Header = () => {
                             </div>
 
                             <ul className="space-y-4">
-                                <li className="hover:text-blue-400 cursor-pointer">
-                                    Home
+                                <li className="hover:text-blue-400 cursor-pointer"  className="hover:text-blue-400 cursor-pointer"
+  onClick={async () => {
+    await logout();
+    // Optional: redirect after logout
+    // navigate("/login");
+  }}>
+                                    Logout
                                 </li>
-                                <li className="hover:text-blue-400 cursor-pointer">
-                                    Leaderboard
-                                </li>
-                                <li className="hover:text-blue-400 cursor-pointer">
-                                    About
-                                </li>
-                                <li className="hover:text-blue-400 cursor-pointer">
-                                    Contact
-                                </li>
+                                
                             </ul>
                         </motion.aside>
 
