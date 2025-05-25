@@ -78,6 +78,3 @@ I used the lucide-react icon set for consistency and simplicity across the app, 
 Background in Image Carousel:
 The background in the image carousel page was adjusted from the original Figma design because the images did not fit well with the plain background. To enhance visual appeal and maintain design balance, I added subtle blinking stars as a background effect, creating a more dynamic and engaging user experience.
 
-
-
-Live Link: 
