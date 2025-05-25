@@ -312,7 +312,7 @@ const ImageCarousel = () => {
                                 }`}
                                 style={{ width: 48, height: 48 }}
                             >
-                                {dragResult === "correct" ? (
+                                {userDragDirection === "down" ? (
                                     <Check className="w-8 h-8 text-white" />
                                 ) : (
                                     <X className="w-8 h-8 text-white" />

@@ -9,7 +9,7 @@ const Button = ({ text, handleFunction, width, size, children }) => {
                 } bg-transparent overflow-visible`}
                 onClick={handleFunction}
             >
-               <span className="flex items-center gap-2">
+               <span className="relative z-10 flex items-center justify-center gap-2 w-full h-full">
                     {children}
                     {text}
                 </span>
